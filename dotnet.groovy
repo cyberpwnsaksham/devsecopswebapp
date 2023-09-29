@@ -41,15 +41,6 @@ pipeline {
                      bat 'snyk code test --report --project-name="devsecopswebapp"'
                       }
         }
-                stage('Snyk DockerFile Test') 
-        {
-                 steps {
-                    echo 'Testing...'
-                    snykSecurity(
-                        snykInstallation: 'snyk@latest', snykTokenId: 'SNYK_TOKEN',
-                        )
-                      }
-        }
         stage('Building a Docker Image')
         {
             steps {
@@ -57,6 +48,16 @@ pipeline {
                     dockerImage = docker.build registry
                         }
                   }
+        }
+                        stage('Snyk DockerFile Test') 
+        {
+                 steps {
+                    //echo 'Testing...'
+                    //snykSecurity(
+                        //snykInstallation: 'snyk@latest', snykTokenId: 'SNYK_TOKEN',
+                        //)
+                bat 'snyk container test dotnetwebapp:third.tar'
+                      }
         }
         stage('Pushing the image to HUB')
             {
