@@ -49,7 +49,7 @@ pipeline {
                         }
                   }
         }
-                        stage('Snyk DockerFile Test') 
+                        stage('Snyk Container Image Test') 
         {
                  steps {
                     //echo 'Testing...'
