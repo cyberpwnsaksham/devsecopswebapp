@@ -33,7 +33,7 @@ pipeline {
         echo 'Testing...'
         snykSecurity(
           snykInstallation: 'snyk1',
-          //snykTokenId: 'cyberpwn-2-api-token',
+          snykTokenId: 'SNYK_TOKEN',
         )
       }
     }
