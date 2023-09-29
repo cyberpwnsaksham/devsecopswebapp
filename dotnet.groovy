@@ -24,7 +24,6 @@ pipeline {
         stage('Snyk SAST Test') 
         {
                  steps {
-                     script {
                     echo 'Testing...'
                     snykSecurity(
                         severity: 'low', snykInstallation: 'snyk1', snykTokenId: 'SNYK_TOKEN',
