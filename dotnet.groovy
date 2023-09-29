@@ -21,12 +21,30 @@ pipeline {
                 }
             }
         }
-        stage('Snyk Test') 
+        stage('Snyk SAST Test') 
         {
                  steps {
                     echo 'Testing...'
                     snykSecurity(
-                        severity: 'medium', snykInstallation: 'snyk1', snykTokenId: 'SNYK_TOKEN',
+                        severity: 'low', snykInstallation: 'snyk1', snykTokenId: 'SNYK_TOKEN',
+                        )
+                      }
+        }
+        stage('Snyk SCA Test') 
+        {
+                 steps {
+                    echo 'Testing...'
+                    snykSecurity(
+                        snykInstallation: 'snyk1', snykTokenId: 'SNYK_TOKEN', targetFile: 'dotnetwebapp.csproj'
+                        )
+                      }
+        }
+                stage('Snyk DockerFile Test') 
+        {
+                 steps {
+                    echo 'Testing...'
+                    snykSecurity(
+                        snykInstallation: 'snyk1', snykTokenId: 'SNYK_TOKEN', targetFile: 'Dockerfile'
                         )
                       }
         }
