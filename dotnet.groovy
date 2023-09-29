@@ -35,8 +35,8 @@ pipeline {
         {
                  steps {
                     echo 'Testing...'
-                    snykSecurity(
-                        snykInstallation: 'snyk@latest', snykTokenId: 'SNYK_TOKEN', targetFile: 'dotnetwebapp.csproj'
+                    snykcodeSecurity(
+                        snykInstallation: 'snyk@latest', snykTokenId: 'SNYK_TOKEN', targetFile: 'Dockerfile'
                         )
                       }
         }
@@ -45,7 +45,7 @@ pipeline {
                  steps {
                     echo 'Testing...'
                     snykSecurity(
-                        snykInstallation: 'snyk@latest', snykTokenId: 'SNYK_TOKEN', targetFile: 'Dockerfile'
+                        snykInstallation: 'snyk@latest', snykTokenId: 'SNYK_TOKEN',
                         )
                       }
         }
