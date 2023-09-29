@@ -34,10 +34,11 @@ pipeline {
         stage('Snyk SAST Test') 
         {
                  steps {
-                    echo 'Testing...'
-                    snykSecurity(
-                        snykInstallation: 'snyk@latest', snykTokenId: 'SNYK_TOKEN',
-                        )
+                    //echo 'Testing...'
+                    //snykSecurity(
+                        //snykInstallation: 'snyk@latest', snykTokenId: 'SNYK_TOKEN',
+                        //)
+                     bat 'snyk code test --json | snyk-to-html -o results.html'
                       }
         }
                 stage('Snyk DockerFile Test') 
