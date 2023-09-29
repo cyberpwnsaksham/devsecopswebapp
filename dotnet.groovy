@@ -24,10 +24,11 @@ pipeline {
         stage('Snyk SAST Test') 
         {
                  steps {
-                    echo 'Testing...'
-                    snykSecurity(
-                        severity: 'low', snykInstallation: 'snyk1', snykTokenId: 'SNYK_TOKEN',
-                        )
+                    \\echo 'Testing...'
+                    \\snykSecurity(
+                        \\severity: 'low', snykInstallation: 'snyk1', snykTokenId: 'SNYK_TOKEN',
+                        \\)
+                     snyk test
                       }
         }
         stage('Snyk SCA Test') 
