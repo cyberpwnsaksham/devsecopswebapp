@@ -25,12 +25,12 @@ pipeline {
         {
                  steps {
                      script {
-                    //echo 'Testing...'
-                    //snykSecurity(
-                        //severity: 'low', snykInstallation: 'snyk1', snykTokenId: 'SNYK_TOKEN',
-                        //)
-                     snyk test
-                      } }
+                    echo 'Testing...'
+                    snykSecurity(
+                        severity: 'low', snykInstallation: 'snyk1', snykTokenId: 'SNYK_TOKEN',
+                        )
+
+                      } 
         }
         stage('Snyk SCA Test') 
         {
