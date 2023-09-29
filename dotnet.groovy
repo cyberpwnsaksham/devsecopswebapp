@@ -28,7 +28,7 @@ pipeline {
                     //snykSecurity(
                         //severity: 'low', snykInstallation: 'snyk1', snykTokenId: 'SNYK_TOKEN',
                         //)
-                     snyk test
+                     bat snyk test
                       }
         }
         stage('Snyk SCA Test') 
