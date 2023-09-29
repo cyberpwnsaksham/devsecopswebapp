@@ -34,7 +34,15 @@ pipeline {
                 }
             }
         }
-
+        stage('Snyk Test') {
+      steps {
+        echo 'Testing...'
+        snykSecurity(
+          snykInstallation: 'snyk1',
+          snykTokenId: '77b2b668-400e-4e4e-80f2-eafbfea28a1b',
+        )
+      }
+    }
         stage('Containerize') {
             steps {
                 script {
