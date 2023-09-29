@@ -34,7 +34,7 @@ pipeline {
         snykSecurity(
           //snykInstallation: 'snyk1',
           //snykTokenId: 'SNYK_TOKEN',
-            snykSecurity severity: 'medium', snykInstallation: 'snyk1', snykTokenId: 'SNYK_TOKEN',
+            severity: 'medium', snykInstallation: 'snyk1', snykTokenId: 'SNYK_TOKEN',
         )
       }
     }
