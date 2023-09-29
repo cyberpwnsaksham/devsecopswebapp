@@ -35,7 +35,7 @@ pipeline {
         {
                  steps {
                     echo 'Testing...'
-                    snykcodeSecurity(
+                    snykSecurity(
                         snykInstallation: 'snyk@latest', snykTokenId: 'SNYK_TOKEN', targetFile: 'Dockerfile'
                         )
                       }
