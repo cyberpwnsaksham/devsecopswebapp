@@ -34,10 +34,6 @@ pipeline {
         stage('Snyk SAST Test') 
         {
                  steps {
-                    //echo 'Testing...'
-                    //snykSecurity(
-                        //snykInstallation: 'snyk@latest', snykTokenId: 'SNYK_TOKEN',
-                        //)
                      bat 'snyk code test --report --project-name="devsecopswebapp"'
                       }
         }
@@ -52,10 +48,6 @@ pipeline {
                         stage('Snyk Container Image Test') 
         {
                  steps {
-                    //echo 'Testing...'
-                    //snykSecurity(
-                        //snykInstallation: 'snyk@latest', snykTokenId: 'SNYK_TOKEN',
-                        //)
                 bat 'snyk container test dotnetwebapp:third.tar'
                       }
         }
