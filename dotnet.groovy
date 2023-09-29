@@ -38,7 +38,6 @@ pipeline {
                     //snykSecurity(
                         //snykInstallation: 'snyk@latest', snykTokenId: 'SNYK_TOKEN',
                         //)
-                     bat 'snyk auth 77b2b668-400e-4e4e-80f2-eafbfea28a1b'
                      bat 'snyk code test --report --project-name="devsecopswebapp"'
                       }
         }
