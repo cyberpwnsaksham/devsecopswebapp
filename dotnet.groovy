@@ -3,25 +3,19 @@ pipeline {
 
     environment {
         // Define environment variables as needed
-        DOTNET_VERSION = '6.0' // Change to your desired .NET version
+        // DOTNET_VERSION = '6.0' // Change to your desired .NET version
         DOCKER_IMAGE_NAME = 'my-dotnet-app'
         DOCKER_REGISTRY_URL = 'bsaksham/dotnetwebapp:tagname'
     }
 
     stages {
-        stage('Checkout') {
-            steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: []])
-            }
-        }
-
         stage('Build') {
             steps {
                 script {
                     // Install and restore .NET dependencies
                     bat "dotnet restore"
                     // Build the .NET project
-                    sh "dotnet build"
+                    bat "dotnet build"
                 }
             }
         }
@@ -30,7 +24,7 @@ pipeline {
             steps {
                 script {
                     // Run your tests here
-                    sh "dotnet test"
+                    bat "dotnet test"
                 }
             }
         }
@@ -45,12 +39,17 @@ pipeline {
     }
         stage('Containerize') {
             steps {
-                script {
-                    // Build a Docker image for your .NET application
-                    sh "docker build -t bsaksham/dotnetwebapp:tagname/dotnetwebapp:1.0 ."
-                    // Push the Docker image to a Docker registry
-                    sh "docker push bsaksham/dotnetwebapp:tagname/dotnetwebapp:1.0"
-                }
+script {
+    // Authenticate with Docker Hub (if not already authenticated)
+    bat "docker login -u bsaksham --password-stdin Docker@123"
+
+    // Build a Docker image for your .NET application
+    bat "docker build -t bsaksham/dotnetwebapp:1.0 ."
+
+    // Push the Docker image to Docker Hub
+    bat "docker push bsaksham/dotnetwebapp:1.0"
+}
+
             }
         }
 
