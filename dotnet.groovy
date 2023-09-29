@@ -38,7 +38,7 @@ pipeline {
                     //snykSecurity(
                         //snykInstallation: 'snyk@latest', snykTokenId: 'SNYK_TOKEN',
                         //)
-                     bat 'snyk code test --report --project-name="devsecopswebapp"
+                     bat 'snyk code test --report --project-name="devsecopswebapp"'
                       }
         }
                 stage('Snyk DockerFile Test') 
