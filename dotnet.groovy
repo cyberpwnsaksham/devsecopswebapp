@@ -21,7 +21,7 @@ pipeline {
                 }
             }
         }
-        stage('Snyk SAST Test') 
+        stage('Snyk SCA Test') 
         {
                  steps {
                     echo 'Testing...'
@@ -31,7 +31,7 @@ pipeline {
 
                       } 
         }
-        stage('Snyk SCA Test') 
+        stage('Snyk SAST Test') 
         {
                  steps {
                     echo 'Testing...'
