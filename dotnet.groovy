@@ -54,7 +54,7 @@ pipeline {
                         stage('Snyk Container Image Test') 
         {
                  steps {
-                bat 'snyk container test dotnetwebapp:third.tar'
+                bat 'snyk container test bsaksham/dotnetwebapp:third'
                       }
         }
         stage('Pushing the image to HUB')
