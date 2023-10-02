@@ -34,10 +34,11 @@ pipeline {
         stage('Snyk SAST Test') 
         {
                  steps {
-                     bat 'snyk code test --report --project-name="devsecopswebapp"'
+                     //bat 'snyk code test --report --project-name="devsecopswebapp"'
+                     bat 'snyk code test'
                      bat 'call exit(0)'
                      //bat 'snyk code test --json | snyk-to-html -o resultsSAST.html'
-                     //bat 'snyk code test'
+                     
                       }
         }
         stage('Building a Docker Image')
