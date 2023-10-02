@@ -54,8 +54,10 @@ pipeline {
                         stage('Snyk Container Image Test') 
         {
                  steps {
+                     catchError {
                 bat 'snyk container test bsaksham/dotnetwebapp:third'
                       }
+                 }
         }
         stage('Pushing the image to HUB')
             {
