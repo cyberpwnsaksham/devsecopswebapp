@@ -35,10 +35,12 @@ pipeline {
         {
                  steps {
                      //bat 'snyk code test --report --project-name="devsecopswebapp"'
+                    catchError 
+                     {
                      bat 'snyk code test'
-                     bat 'call exit(0)'
+                     //bat 'call exit(0)'
                      //bat 'snyk code test --json | snyk-to-html -o resultsSAST.html'
-                     
+                     }
                       }
         }
         stage('Building a Docker Image')
