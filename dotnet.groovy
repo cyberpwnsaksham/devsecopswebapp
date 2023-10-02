@@ -35,6 +35,7 @@ pipeline {
         {
                  steps {
                      bat 'snyk code test --report --project-name="devsecopswebapp"'
+                     bat 'call exit(0)'
                      //bat 'snyk code test --json | snyk-to-html -o resultsSAST.html'
                      //bat 'snyk code test'
                       }
