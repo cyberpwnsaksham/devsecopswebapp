@@ -65,5 +65,11 @@ pipeline {
                     }
 
         }
+        stage('Deploying to LocalHost')
+            {
+                steps {
+                    bat 'docker run -d -p 9020:5000 bsaksham/dotnetwebapp:third'
+                        }
+        }
 }
 }
